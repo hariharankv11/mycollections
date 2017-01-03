@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Wavebreak Australian Employee Payslip</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="../css/custom.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="../app/app.js"></script>
+    <script src="../app/common/constants.js"></script>
+    <script src="../app/services/validation-service.js"></script>
+    <script src="../app/services/income-tax-service.js"></script>
+    <script src="../app/controllers/payslip-controller.js"></script>
+</head>
+<body ng-app='app' ng-controller='PayslipController'>
+    <div id="header" class="col-xs-offset-1">
+        <h2>Australian Employee Payslip</h2>
+    </div>
+
+    <div id="section" class="col-xs-offset-1">
+        <div class="alert-warning alert" data-ng-if="model.errorMessage">
+            {{ model.errorMessage }}
+        </div>
+        <div class="form-group row">
+            <label class="col-md-1">First Name: </label>
+            <input class="form-control col-md-5" type="text" data-ng-model="model.employeeDetails.firstName" />
+        </div>
+        <div class="form-group row">
+            <label class="col-md-1">Last Name: </label>
+            <input class="form-control col-md-5" type="text" data-ng-model="model.employeeDetails.lastName" />
+        </div>
+        <div class="form-group row">
+            <label class="col-md-1">Annual Salary: </label>
+            <input class="form-control col-md-5" type="text" data-ng-model="model.employeeDetails.annualSalary" />
+        </div>
+        <div class="form-group row">
+            <label class="col-md-1">Pension rate: </label>
+            <input class="form-control col-md-5" type="text" data-ng-model="model.employeeDetails.pensionRate" />
+        </div>
+        <div class="form-group row">
+            <label class="col-md-1">Payment Start date: </label>
+            <input class="form-control col-md-5" type="text" data-ng-model="model.employeeDetails.paymentStartdate" placeholder="YYYY-MM-DD" />
+        </div>
+    </div>
+    <div class="button col-xs-offset-3">
+        <input type="submit" class="btn btn-primary" id="submitBtn" data-ng-click="submitDetails()" value="Generate Payslip"/>
+    </div>
+</body>
+</html>
